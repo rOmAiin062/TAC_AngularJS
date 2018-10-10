@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data-service/data.service';
 
 @Component({
   selector: 'app-cat-form',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatFormComponent implements OnInit {
 
-  constructor() { }
+ card = {title: 'title',
+          imageUrl: '',
+          description: ''};
+
+  constructor(private dataservice: DataService) { }
 
   ngOnInit() {
+
+  }
+
+  onClick() {
+    this.dataservice.createCard(this.card);
   }
 
 }

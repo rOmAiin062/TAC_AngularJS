@@ -27,7 +27,7 @@ public initData() {
     }
   }
 
-public getAllCards(): Promise<[]> {
+public getAllCards(): Promise<any[]> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const cards = JSON.parse(sessionStorage.getItem('cards'));
@@ -38,6 +38,22 @@ public getAllCards(): Promise<[]> {
       }
     }, 300);
   });
+}
+
+public createCard(card){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const cards = JSON.parse(sessionStorage.getItem('cards'));
+            if( cards && cards.length) {
+                const maxId = Math.max(...cards.map(c => c.id));
+                cards.push({ id: maxId + 1, ...card });
+                sessionStorage.setItem('cards', JSON.stringify(cards));
+                resolve();
+            } else {
+                reject('No cards found !');
+            }
+        }, 300);
+    });
 }
 
 
