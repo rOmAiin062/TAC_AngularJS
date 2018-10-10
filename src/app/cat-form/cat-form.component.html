@@ -32,7 +32,9 @@
     </div>
 
 
-    <a routerLink=""><button class="btn btn-danger" (click)="onDelet()" >Delete</button></a>
+      <span *ngIf="id">
+      <a routerLink=""><button class="btn btn-danger" (click)="onDelet()" >Delete</button></a>
+    </span>
       <a routerLink=""><button type="submit" class="btn btn-primary" (click)="onClick()" >Save</button></a>
   </form>
 
