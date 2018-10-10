@@ -27,7 +27,7 @@ public initData() {
     }
   }
 
-public getAllCards() {
+public getAllCards(): Promise<[]> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
       const cards = JSON.parse(sessionStorage.getItem('cards'));
