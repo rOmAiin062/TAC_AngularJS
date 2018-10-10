@@ -3,12 +3,11 @@
   <h1 class="text-white text-center p-3">Cat card app</h1>
 
 </header>
+
 <section class="container">
   <h2>Cat card form</h2>
   <hr />
-  <form #cardForm="ngForm" novalidate class="was-validated">
-
-
+  <form #cardForm="ngForm" *ngIf="show; else notShow" novalidate class="was-validated">
     <div class="form-group row">
       <label for="cardTitle" class="col-sm-2 col-form-label">Card title</label>
       <input  type="text" required class="form-control col-sm-10" id="cardTitle" placeholder="Card title" name="title" [(ngModel)]="card.title">
@@ -33,10 +32,22 @@
     </div>
 
 
-    <a routerLink=""><button class="btn btn-danger" (click)="onDelet()" >Delete</button></a>
+      <span *ngIf="id">
+      <a routerLink=""><button class="btn btn-danger" (click)="onDelet()" >Delete</button></a>
+    </span>
       <a routerLink=""><button type="submit" class="btn btn-primary" (click)="onClick()" >Save</button></a>
   </form>
+
+<ng-template #notShow>
+  <div>
+    <p> L'id de la carte n'a pas été trouvé. </p>
+    <a routerLink=""><button class="btn">Retourner à l'accueil</button></a>
+  </div>
+</ng-template>
 </section>
+
+
+
 <footer class="bg-light">
   <div class="container text-center">
     <i class="far fa-copyright mr-1"></i><label>2018 - Lille 1</label>

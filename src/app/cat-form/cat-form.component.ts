@@ -12,6 +12,7 @@ export class CatFormComponent implements OnInit {
 
     card = {};
     id: number = 0;
+    show : boolean = true;
 
 
     constructor(    private route: ActivatedRoute,
@@ -19,12 +20,9 @@ export class CatFormComponent implements OnInit {
 
     ngOnInit() {
         this.id = +this.route.snapshot.paramMap.get('id');
-
         if (this.id) {
             this.getCard();
         }
-
-
     }
 
     onClick() {
@@ -32,9 +30,8 @@ export class CatFormComponent implements OnInit {
         //this.dataService.createCard(this.card);
     }
 
-
     getCard() {
-        this.dataService.getCard(this.id).then((card) => this.card = card);
+      this.dataService.getCard(this.id).then((card) => this.card = card).catch(e => this.show = false);
     }
     onDelet() {
         this.dataService.deleteCard(this.id).then();
