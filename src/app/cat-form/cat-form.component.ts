@@ -28,7 +28,8 @@ export class CatFormComponent implements OnInit {
     }
 
     onClick() {
-        this.dataService.createCard(this.card);
+        this.id == 0 ? this.dataService.createCard(this.card):this.dataService.updateCard(this.card);
+        //this.dataService.createCard(this.card);
     }
 
 
