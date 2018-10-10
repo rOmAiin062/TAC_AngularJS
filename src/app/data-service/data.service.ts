@@ -40,6 +40,7 @@ public getAllCards(): Promise<any[]> {
   });
 }
 
+
 public getCard(cardId) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -73,6 +74,7 @@ public createCard(card) {
     }, 300);
   });
 }
+
 
 public updateCard(card) {
   return new Promise((resolve, reject) => {

@@ -2,34 +2,39 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data-service/data.service';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
-  selector: 'app-cat-form',
-  templateUrl: './cat-form.component.html',
-  styleUrls: ['./cat-form.component.css']
+    selector: 'app-cat-form',
+    templateUrl: './cat-form.component.html',
+    styleUrls: ['./cat-form.component.css']
 })
 
 export class CatFormComponent implements OnInit {
 
-  id : number = 0;
-  card : any;
+    card = {};
+    id: number = 0;
+    show : boolean = true;
 
-  show : boolean = true;
 
-  constructor(
-    private route: ActivatedRoute,
-    private dataService : DataService
-  ){}
+    constructor(    private route: ActivatedRoute,
+                    private dataService: DataService) { }
 
-  ngOnInit(){
-    this.id = +this.route.snapshot.paramMap.get('id');
-    if(this.id){
-      this.getCard();
+    ngOnInit() {
+        this.id = +this.route.snapshot.paramMap.get('id');
+        if (this.id) {
+            this.getCard();
+        }
     }
-  }
 
-  getCard(){
-    this.dataService.getCard(this.id).then((card) => this.card = card).catch(e => this.show = false);
-  }
+    onClick() {
+        this.id == 0 ? this.dataService.createCard(this.card):this.dataService.updateCard(this.card);
+        //this.dataService.createCard(this.card);
+    }
 
+    getCard() {
+      this.dataService.getCard(this.id).then((card) => this.card = card).catch(e => this.show = false);
+    }
+    onDelet() {
+        this.dataService.deleteCard(this.id).then();
+
+    }
 }
