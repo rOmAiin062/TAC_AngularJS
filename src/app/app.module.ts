@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CardCatComponent } from './card-cat/card-cat.component';
+import { FormComponent } from './form/form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CardCatComponent
+    CardCatComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule
