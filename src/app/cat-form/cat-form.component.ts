@@ -11,16 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 export class CatFormComponent implements OnInit {
 
     card = {};
-    id : number = 0;
+    id: number = 0;
 
 
     constructor(    private route: ActivatedRoute,
                     private dataService: DataService) { }
 
-    ngOnInit(){
+    ngOnInit() {
         this.id = +this.route.snapshot.paramMap.get('id');
 
-        if(this.id){
+        if (this.id) {
             this.getCard();
         }
 
@@ -32,8 +32,11 @@ export class CatFormComponent implements OnInit {
     }
 
 
-    getCard(){
+    getCard() {
         this.dataService.getCard(this.id).then((card) => this.card = card);
     }
+    onDelet() {
+        this.dataService.deleteCard(this.id).then();
 
+    }
 }
