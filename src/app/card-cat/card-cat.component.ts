@@ -7,7 +7,7 @@ import { DataService } from '../data-service/data.service';
 })
 export class CardCatComponent implements OnInit {
 
-  cards = { };
+  cards = [];
   constructor(private dataService: DataService) { }
 
   ngOnInit() {
