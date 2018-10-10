@@ -1,16 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { AppRoutingModule } from './app-routing.module';
+
 
 import { AppComponent } from './app.component';
 import { CatFormComponent } from './cat-form/cat-form.component';
-import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
+import { CardCatComponent } from './card-cat/card-cat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CatFormComponent,
-    HomeComponent
+    HomeComponent,
+    CardCatComponent
   ],
   imports: [
     BrowserModule,
