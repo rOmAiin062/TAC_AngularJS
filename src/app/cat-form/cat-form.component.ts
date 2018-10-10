@@ -1,25 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data-service/data.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-cat-form',
-  templateUrl: './cat-form.component.html',
-  styleUrls: ['./cat-form.component.css']
+    selector: 'app-cat-form',
+    templateUrl: './cat-form.component.html',
+    styleUrls: ['./cat-form.component.css']
 })
+
 export class CatFormComponent implements OnInit {
 
- card = {title: 'title',
-          imageUrl: '',
-          description: ''};
+    card = {};
+    id : number = 0;
 
-  constructor(private dataservice: DataService) { }
 
-  ngOnInit() {
+    constructor(    private route: ActivatedRoute,
+                    private dataService: DataService) { }
 
-  }
+    ngOnInit(){
+        this.id = +this.route.snapshot.paramMap.get('id');
 
-  onClick() {
-    this.dataservice.createCard(this.card);
-  }
+        if(this.id){
+            this.getCard();
+        }
+
+
+    }
+
+    onClick() {
+        this.dataService.createCard(this.card);
+    }
+
+
+    getCard(){
+        this.dataService.getCard(this.id).then((card) => this.card = card);
+    }
 
 }
