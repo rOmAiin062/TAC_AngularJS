@@ -19,7 +19,7 @@
 
     <div class="form-group row">
       <label for="cardImage" class="col-sm-2 col-form-label">Card image URL</label>
-      <input type="url" required class="form-control col-sm-10" id="cardImage" placeholder="Card image URL" name="imageUrl" [(ngModel)]="card.imageUrl" >
+      <input type="url" required pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" class="form-control col-sm-10" id="cardImage" placeholder="Card image URL" name="imageUrl" [(ngModel)]="card.imageUrl" >
       <div class="invalid-feedback offset-md-2 col-sm-10">
         That field is required and attempt an URL as value. Please provide a value that respect URL format.
       </div>
@@ -45,3 +45,4 @@
   </div>
 </ng-template>
 </section>
+
