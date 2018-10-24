@@ -9,6 +9,7 @@ import { CatFormComponent } from './cat-form/cat-form.component';
 import { HomeComponent } from './home/home.component';
 import { CardCatComponent } from './card-cat/card-cat.component';
 import { FooterComponentComponent } from './footer-component/footer-component.component';
+import { HeaderComponentComponent } from './header-component/header-component.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FooterComponentComponent } from './footer-component/footer-component.co
     CatFormComponent,
     HomeComponent,
     CardCatComponent,
-    FooterComponentComponent
+    FooterComponentComponent,
+    HeaderComponentComponent
   ],
   imports: [
     BrowserModule,
