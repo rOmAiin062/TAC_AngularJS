@@ -11,5 +11,4 @@ export class AppComponent {
     constructor(){
       this.currentDate = formatDate(new Date(),'yyyy', "en-US");
     }
-    
 }
