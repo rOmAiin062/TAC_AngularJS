@@ -6,9 +6,7 @@ import { formatDate } from '@angular/common'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    currentDate = ''
 
     constructor(){
-      this.currentDate = formatDate(new Date(),'yyyy', "en-US");
     }
 }
